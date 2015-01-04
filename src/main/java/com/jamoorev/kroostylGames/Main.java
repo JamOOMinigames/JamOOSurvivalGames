@@ -6,23 +6,25 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class Main extends JavaPlugin {
 	
 	public static Main instance;
-	
-	public static int gameState;
-	
+		
 	public Main() {
 		instance = this;
 	}
 	
-	public void onEnable() {
-		gameState = 0;
+	public void onLoad() {
+		// This is where we load the lobby!
+	}
+	
+	public void onEnable() {	
+        Bukkit.getMessenger().registerOutgoingPluginChannel(instance, "BungeeCord");
+		
+		getServer().getPluginManager().registerEvents(new EventListener(), instance);
 	}
 	
 	public void onDisable() {
 		
 	}
 	
-	public void onLoad() {
-		
-	}
+
 	
 }
