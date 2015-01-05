@@ -1,8 +1,5 @@
 package com.jamoorev.kroostylGames.chestGen;
 
-
-import java.util.Random;
-
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Chest;
@@ -25,9 +22,11 @@ public class ChestGenThread implements Runnable{
 							inventory.clear();
                             ItemStack stack;
 
-                            stack = ChestItems.stacks.get(new Random(Main.instance.getServer().getWorld("world").getFullTime()).nextInt(ChestItems.stacks.size()));
+                            for (int i = 0; i < Main.getRandom().nextInt(10) + 1;i++) {
+                            	stack = ChestItems.stacks.get(Main.getRandom().nextInt(ChestItems.stacks.size()));
 							
-                            setInRandomSlot(inventory,stack);
+                            	setInRandomSlot(inventory,stack);
+                            }
 					}
 				}
 			}
@@ -35,7 +34,7 @@ public class ChestGenThread implements Runnable{
 	}
 	
     public static void setInRandomSlot(Inventory inventory, ItemStack stack) {
-        inventory.setItem(new Random(Main.instance.getServer().getWorld("world").getFullTime()).nextInt(inventory.getSize() - 1),stack);
+        inventory.setItem(Main.getRandom().nextInt(inventory.getSize() - 1),stack);
     }
 
 }
