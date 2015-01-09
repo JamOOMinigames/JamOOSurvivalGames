@@ -1,5 +1,11 @@
 name: KroostylGames
 version: 0.0.1
 description: Looks like you're trying to write a description, would you like help?
-main: com.jamoorev.KroostylGames.Main
+main: com.jamoorev.kroostylGames.Main
 depend: [TitleManager]
+commands:
+   startKG:
+      description: Starts the game!
+      usage: /startKG
+      permission: bukkit.command.op
+      permission-message: You don't have permission to perform this command, soory!

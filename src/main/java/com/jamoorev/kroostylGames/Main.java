@@ -4,6 +4,9 @@ import java.util.Random;
 import java.util.UUID;
 
 import org.bukkit.Bukkit;
+import org.bukkit.WorldCreator;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -44,5 +47,10 @@ public class Main extends JavaPlugin {
 		}
 		return random;
 	}
+	
+    @Override
+    public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    	return EventListener.processCommand(sender, cmd, label, args);
+    }
 	
 }
